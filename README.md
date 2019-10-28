@@ -6,7 +6,8 @@ This is the Front End Application for [Geo Smart System](https://github.com/supa
 - Angular
 
 ## Todo
-- Integration With Geo Smart System
+- Integration With Geo Smart System ( OK )
+- Get Data From Geo Smart System by Service
 
 ## License
 Copyright 2019 Supan Adit Pratama

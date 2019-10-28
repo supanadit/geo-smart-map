@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { icon, latLng, marker, tileLayer } from 'leaflet';
+import { icon, latLng, Marker, marker, tileLayer } from 'leaflet';
 import { AppService } from './app.service';
 import { ToastrService } from 'ngx-toastr';
+import { LocationModel, locationModelFromEventSource, markerListFromLocationModel } from './model/location';
 
 @Component({
     selector: 'app-root',
@@ -29,11 +30,43 @@ export class AppComponent implements OnInit {
         }),
     });
 
+    // @ts-ignore
+    listLayer: Array<Marker> = [
+        marker([-6.914744, 107.609810], {
+            icon: icon({
+                iconSize: [20, 20],
+                iconUrl: 'assets/markers/red.png',
+            }),
+        }),
+        marker([-6.914744, 107.213], {
+            icon: icon({
+                iconSize: [20, 20],
+                iconUrl: 'assets/markers/red.png',
+            }),
+        }),
+        marker([-6.914744, 107.603459810], {
+            icon: icon({
+                iconSize: [20, 20],
+                iconUrl: 'assets/markers/red.png',
+            }),
+        }), marker([-6.914744, 107.345435], {
+            icon: icon({
+                iconSize: [20, 20],
+                iconUrl: 'assets/markers/red.png',
+            }),
+        })
+    ];
+
+    // tslint:disable-next-line:variable-name
     constructor(private appService: AppService, private toastr: ToastrService) {
     }
 
     ngOnInit(): void {
-        // this.toastr.success('Hello world!', 'Toastr fun!');
+        const source = new EventSource('http://localhost:8080/stream');
+        source.addEventListener('message', message => {
+            const listLocationModel: Array<LocationModel> = locationModelFromEventSource(message);
+            this.listLayer = markerListFromLocationModel(listLocationModel);
+        });
     }
 
 }
