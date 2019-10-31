@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { icon, latLng, Marker, marker, tileLayer } from 'leaflet';
+import { latLng, Marker, tileLayer } from 'leaflet';
 import { AppService } from './app.service';
 import { ToastrService } from 'ngx-toastr';
-import { LocationModel, locationModelFromEventSource, markerListFromLocationModel } from './model/location';
 
 @Component({
     selector: 'app-root',
@@ -10,7 +9,7 @@ import { LocationModel, locationModelFromEventSource, markerListFromLocationMode
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    token = 'pk.eyJ1Ijoic3VwYW5hZGl0IiwiYSI6ImNqb3RlbmwyNjEwaHEzcG5oOG1uYXd2bDgifQ.Gb4UHqHuRsXhRsGj8ZfqQg';
+    token = 'pk.eyJ1Ijoic3VwYW5hZGl0IiwiYSI6ImNrMmVweWdrcTA4ZzgzY3A1NDE5ZnQwazkifQ.hK2Mz6cFk-jeIHzFBdaKTg';
     style = `ck1w9autf0f0r1co76j79eab7`;
 
     options = {
@@ -23,49 +22,16 @@ export class AppComponent implements OnInit {
         center: latLng(-6.914744, 107.609810)
     };
 
-    layer = marker([-6.914744, 107.609810], {
-        icon: icon({
-            iconSize: [20, 20],
-            iconUrl: 'assets/markers/red.png',
-        }),
-    });
-
     // @ts-ignore
-    listLayer: Array<Marker> = [
-        marker([-6.914744, 107.609810], {
-            icon: icon({
-                iconSize: [20, 20],
-                iconUrl: 'assets/markers/red.png',
-            }),
-        }),
-        marker([-6.914744, 107.213], {
-            icon: icon({
-                iconSize: [20, 20],
-                iconUrl: 'assets/markers/red.png',
-            }),
-        }),
-        marker([-6.914744, 107.603459810], {
-            icon: icon({
-                iconSize: [20, 20],
-                iconUrl: 'assets/markers/red.png',
-            }),
-        }), marker([-6.914744, 107.345435], {
-            icon: icon({
-                iconSize: [20, 20],
-                iconUrl: 'assets/markers/red.png',
-            }),
-        })
-    ];
+    listMarker: Array<Marker> = [];
 
     // tslint:disable-next-line:variable-name
     constructor(private appService: AppService, private toastr: ToastrService) {
     }
 
     ngOnInit(): void {
-        const source = new EventSource('http://localhost:8080/stream');
-        source.addEventListener('message', message => {
-            const listLocationModel: Array<LocationModel> = locationModelFromEventSource(message);
-            this.listLayer = markerListFromLocationModel(listLocationModel);
+        this.appService.getStreamUser().subscribe((listMarker: Array<Marker>) => {
+            this.listMarker = listMarker;
         });
     }
 

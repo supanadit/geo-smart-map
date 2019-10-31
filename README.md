@@ -9,7 +9,7 @@ This is the Front End Application for [Geo Smart System](https://github.com/supa
 
 ## Todo
 - Integration With Geo Smart System ( OK )
-- Get Data From Geo Smart System by Service
+- Get Data From Geo Smart System by Service ( OK )
 
 ## License
 Copyright 2019 Supan Adit Pratama

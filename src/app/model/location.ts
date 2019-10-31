@@ -55,13 +55,14 @@ export class LocationModel implements LocationInterface {
     }
 }
 
-// @ts-ignore
 export function locationModelFromEventSource(listener: any): Array<LocationModel> {
     const data = JSON.parse(listener.data);
     let locationModelList: Array<LocationModel> = [];
     if (data != null) {
         const listData: Array<any> = data.data;
-        locationModelList = listData.map<LocationModel>((x: LocationInterface) => new LocationModel(x));
+        if (listData != null) {
+            locationModelList = listData.map<LocationModel>((x: LocationInterface) => new LocationModel(x));
+        }
     }
     return locationModelList;
 }
