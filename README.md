@@ -1,9 +1,7 @@
-![Geo Smart Logo](http://supanadit.com/wp-content/uploads/2019/11/geo.png)
+![Geo Smart Logo](http://supanadit.com/wp-content/uploads/2019/11/Geo-Smart.png)
 
 # GEO Smart Map
 This is the Front End Application which the Live Map for [Geo Smart System](https://github.com/supanadit/geosmartsystem)
-
-![Geo Smart Map](http://supanadit.com/wp-content/uploads/2019/10/Screenshot_20191020_000337.png)
 
 ## Requirements
 - NPM
