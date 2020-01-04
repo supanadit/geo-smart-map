@@ -31,9 +31,13 @@
               "src/styles.scss",
               "node_modules/leaflet/dist/leaflet.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@ansur/leaflet-pulse-icon/dist/L.Icon.Pulse.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/@ansur/leaflet-pulse-icon/dist/L.Icon.Pulse.js"
+            ]
           },
           "configurations": {
             "production": {
