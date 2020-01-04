@@ -1,6 +1,9 @@
 ![Geo Smart Logo](http://supanadit.com/wp-content/uploads/2019/11/Geo-Smart-Logo.png)
 
 # GEO Smart Map
+
+![Show Case](http://supanadit.com/wp-content/uploads/2020/01/Peek-2020-01-04-21-09.gif)
+
 This is the Front End Application which is the Live Map for [Geo Smart System](https://github.com/supanadit/geosmartsystem)
 
 ## Requirements
