@@ -11,3 +11,11 @@ body {
   right: 0;
   left: 0;
 }
+
+.logo {
+  margin-top: -20px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 10000;
+  float: right;
+}
