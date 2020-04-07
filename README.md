@@ -1,5 +1,3 @@
-![Geo Smart Logo](https://supanadit.com/public/storage/image/geo_smart_logo.png)
-
 # GEO Smart Map
 
 This is the Front End Application which is the Live Map for [Geo Smart System](https://github.com/supanadit/geosmartsystem)
