@@ -1,4 +1,4 @@
 export const environment = {
-    api: 'http://localhost:8080',
-    production: true
+  api: 'https://api.geosmart.supanadit.com',
+  production: true
 };
